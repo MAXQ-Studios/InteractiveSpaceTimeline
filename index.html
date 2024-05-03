@@ -14,8 +14,33 @@
             <h3>Unessay project by Jonas Ehrmantraut</h3>
         </header>
         <main>
-
+            <ul class="timeline">
+                <li class="event">
+                    <div class="date">19</div>
+                    <div class="description">Event description here</div>
+                </li>
+                <li class="event">
+                    <div class="date">2000</div>
+                    <div class="description">Another event description</div>
+                </li>
+                <li class="event">
+                    <div class="date">2010</div>
+                    <div class="description">Yet another event description</div>
+                </li>
+            </ul>            
         </main>
+        <script>
+            const events = document.querySelectorAll('.event');
+        
+            events.forEach(event => {
+                const date = event.querySelector('.date');
+                const description = event.querySelector('.description');
+        
+                date.addEventListener('click', () => {
+                    description.classList.toggle('expanded');
+                });
+            });
+        </script>
         <footer>
             
         </footer>
