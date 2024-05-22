@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <title>InteracticeSpaceTimeline</title>
-        <link rel="icon" href="" type="image/x-icon">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>Interactive Space Timeline</h1>
-            <h2>A fully interactive timeline of all of space flight</h2>
-            <h3>Unessay project by Jonas Ehrmantraut</h3>
-        </header>
-        <main>
-            <ul class="timeline">
-                <li class="event">
-                    <div class="date">19</div>
-                    <div class="description">Event description here</div>
-                </li>
-                <li class="event">
-                    <div class="date">2000</div>
-                    <div class="description">Another event description</div>
-                </li>
-                <li class="event">
-                    <div class="date">2010</div>
-                    <div class="description">Yet another event description</div>
-                </li>
-            </ul>            
-        </main>
-        <script>
-            const events = document.querySelectorAll('.event');
-        
-            events.forEach(event => {
-                const date = event.querySelector('.date');
-                const description = event.querySelector('.description');
-        
-                date.addEventListener('click', () => {
-                    description.classList.toggle('expanded');
-                });
-            });
-        </script>
-        <footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>InteracticeSpaceTimeline</title>
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="/dropdown.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Interactive Space Timeline</h1>
+        <h2>A fully interactive timeline of space from the early days to modern day</h2>
+        <h3>Unessay project by Jonas Ehrmantraut</h3>
+    </header>
+    <main>
+        <div>
+            <button type="button" class="dropdown">Early Space Race</button>
+            <div class="content">
+                <ul class="timeline">
+                    <li>
+                        <button type="button" class="date">October 3rd 1942</button>
+                        <div class="description">First successful V2 Launch out of Nazi Germany</div>
+                        <button type="button" class="explain">V2 Information</button>
+                        <div class="explaination">The V2 was a missile developed by Nazi Germany during WW2. 
+                            Its success had many effects, one of which was the US & USSR developing their own missiles.</div>
+                    </li>
+                </ul>                
+            </div>
             
-        </footer>
-    </body>
+            
+        </div> 
+    </main>
+    <footer>
+
+    </footer>
+</body>
 </html>
