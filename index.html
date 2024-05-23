@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>InteracticeSpaceTimeline</title>
     <link rel="icon" href="" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="stylesheet" href="styles.css">-->
     <!--<script type="module" src="/dropdown.js"></script>-->
 </head>
 <script type="module">
@@ -46,6 +46,121 @@
         });
     });
 </script>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack elements vertically */
+    align-items: center;
+    min-height: 100vh; /* Ensures body takes up full height */
+}
+
+header {
+    width: 100%;
+    text-align: center; /* Center the header text */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the main content */
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline li {
+    margin-bottom: 20px;
+}
+
+.timeline .date {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.timeline .description {
+    display: none;
+}
+
+.timeline .explain {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.timeline .explaination {
+    display: none;
+}
+
+.timeline .explaination.expanded {
+    display: block;
+}
+
+.timeline .description.expanded {
+    display: block;
+}
+
+.dropdown {
+    background-color: rgb(255, 135, 0);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+.dropdown:hover {
+    background-color: rgb(255, 165, 0);
+}
+
+.content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: orange;
+    text-align: center;
+    width: 80%;
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+.holding-box {
+    background-color: rgb(255, 135, 0);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+.dropdown:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: gray;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+</style>
 <body>
     <header>
         <h1>Interactive Space Timeline</h1>
