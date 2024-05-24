@@ -2,77 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>InteracticeSpaceTimeline</title>
-    <link rel="icon" href="" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IST | Home</title>
     <link rel="stylesheet" href="styles.css">
-    <!--<script type="module" src="/dropdown.js"></script>-->
 </head>
-<script type="module">
-    var coll = document.getElementsByClassName("dropdown");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-        content.style.maxHeight = null;
-        } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const dates = document.querySelectorAll('.date');
-
-        dates.forEach(date => {
-            date.addEventListener('click', () => {
-                const description = date.nextElementSibling;
-                description.classList.toggle('expanded');
-            });
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const dates = document.querySelectorAll('.explain');
-
-        dates.forEach(date => {
-            date.addEventListener('click', () => {
-                const description = date.nextElementSibling;
-                description.classList.toggle('explaination');
-            });
-        });
-    });
-</script>
-
 <body>
     <header>
+        <a href="sources.html" class="button">Sources</a>
         <h1>Interactive Space Timeline</h1>
         <h2>A fully interactive timeline of space from the early days to modern day</h2>
         <h3>Unessay project by Jonas Ehrmantraut</h3>
     </header>
     <main>
-        <div>
-            <button type="button" class="dropdown">Early Space Race</button>
+        <div class="holding-box">
+            <button type="button" class="dropdown">Pre-Space Race (1942 - 1957)</button>
             <div class="content">
                 <ul class="timeline">
                     <li>
-                        <button type="button" class="date">October 3rd 1942</button>
-                        <div class="description">First successful V2 Launch out of Nazi Germany</div>
-                        <button type="button" class="explain">V2 Information</button>
-                        <div class="explaination">The V2 was a missile developed by Nazi Germany during WW2. 
-                            Its success had many effects, one of which was the US & USSR developing their own missiles.</div>
+                        <div class="holding-box">
+                            <button type="button" class="dropdown">October 3rd 1942</button>
+                            <div class="content">
+                                First successful V2 Launch out of Nazi Germany
+                                <a href="v2.html" class="button">V2 Information</a>
+                            </div>
+                        </div>
+                        <div class="holding-box">
+                            <button type="button" class="dropdown">1945 - 1959</button>
+                            <div class="content">
+                                <h1>Transfer of German scientists to the US & USSR</h1>
+                                <a href="paperclip.html" class="button">Transfer Information</a>
+                            </div>
+                        </div>
+                        <div class="holding-box">
+                            <button type="button" class="dropdown">August 21st 1957</button>
+                            <div class="content">
+                                <h1>First launch of R-7</h1>
+                                <a href="r7.html" class="button">R-7 Information</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>                
             </div>
-            
-            
+            <button type="button" class="dropdown">Early Space Race (1957 - 1968)</button>
+            <div class="content">
+                <ul class="timeline">
+                    <li>
+                        <div class="holding-box">
+                            <button type="button" class="dropdown">October 4th 1957</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div> 
     </main>
     <footer>
-
+        <h1>Interactive Space Timeline</h1>
+        <h2>by Jonas Ehrmantraut</h2>
     </footer>
+
+    <script>
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', (event) => {
+                const content = dropdown.nextElementSibling;
+                const isExpanded = content.classList.contains('expanded');
+
+                // Close all other dropdowns
+                document.querySelectorAll('.content.expanded').forEach(exp => {
+                    if (exp !== content && !exp.contains(content)) {
+                        exp.classList.remove('expanded');
+                        exp.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked dropdown
+                if (isExpanded) {
+                    content.classList.remove('expanded');
+                    dropdown.classList.remove('active');
+                } else {
+                    content.classList.add('expanded');
+                    dropdown.classList.add('active');
+                    // Expand parent dropdowns as well
+                    let parentContent = content.parentElement.closest('.content');
+                    while (parentContent) {
+                        parentContent.classList.add('expanded');
+                        parentContent.previousElementSibling.classList.add('active');
+                        parentContent = parentContent.parentElement.closest('.content');
+                    }
+                }
+
+                event.stopPropagation();
+            });
+        });
+    </script>
+    
+    
 </body>
 </html>

@@ -22,12 +22,47 @@ main {
     align-items: center; /* Center the dropdowns horizontally */
 }
 
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline li {
+    margin-bottom: 20px;
+}
+
+.timeline .date {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.timeline .description {
+    display: none;
+}
+
+.timeline .explain {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.timeline .explaination {
+    display: none;
+}
+
+.timeline .explaination.expanded {
+    display: block;
+}
+
+.timeline .description.expanded {
+    display: block;
+}
+
 .dropdown {
     background-color: rgb(255, 135, 0);
     color: white;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 100%; /* Changed to 100% to fill the holding box */
     border: none;
     text-align: center;
     outline: none;
@@ -49,10 +84,6 @@ main {
     transform: translateY(-50%); /* Correct vertical alignment */
 }
 
-.dropdown.active:after {
-    content: '\2796'; /* Unicode character for "minus" sign (-) */
-}
-
 .dropdown:hover {
     background-color: rgb(255, 165, 0);
 }
@@ -66,10 +97,7 @@ main {
     text-align: center;
     width: 80%;
     margin: 0;
-}
-
-.content.expanded {
-    max-height: 1000px; /* Arbitrary large value to allow expansion */
+    /*max-height: max-content;*/
 }
 
 .holding-box {
@@ -89,6 +117,7 @@ main {
     margin: 10px 0; /* Add some margin for spacing */
     position: relative; /* Ensures the holding box positions correctly */
     max-height: max-content;
+    flex-direction: column;
 }
 
 .active:after {
@@ -118,4 +147,19 @@ footer {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.grid-container img {
+    width: 100%;
+    height: 200px;
+    display: block;
+    object-fit: cover;
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IST | Transfer</title>
+        <link rel="stylesheet" href="infostyles.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html" class="button">&larr;Back</a>
+            <h1>Scientist Transfer Information</h1>
+            <h2>Historically relevant information about the transfer of German Scientists to the US & USSR</h2>
+        </header>
+        <main>
+            <div class="holding-box">
+                <button type="button" class="dropdown">Summery</button>
+                <div class="content">
+                    <h2>From 1945 to 1959 both the US & USSR had programs taking scientists from Germany's programs and integrated them into their own.</h2>
+                </div>
+                <button type="button" class="dropdown">Detailed Explanation</button>
+                <div class="content">
+                    <h1>Operations</h1>
+                    <h2>Operation Paperclip</h2>
+                    <p>The operation used by the United States for this transfer was Operation Paperclip. The main idea of the operation was to smoothly move german scientists to the US and keep their pasts secret.</p>
+                    <p>One such Scientist was Werner Von Braun, who later made the Saturn 5 and led NASA to the moon.</p>
+                    <h2>Operation Osoaviakhim</h2>
+                    <p>Operation Osoaviakhim was the Soivet version of Operation Paperclip. Operation Osoaviakhim focused more on equipment and people instead of just people.</p>
+                    <p>Similiar to Operation Paperclip is was also top secret.</p>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
+            var coll = document.getElementsByClassName("dropdown");
+            for (let i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+
+                    // Toggle maxHeight
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+
+            // Description toggling
+            const dates = document.querySelectorAll('.date');
+            dates.forEach(date => {
+                date.addEventListener('click', () => {
+                    const description = date.nextElementSibling;
+                    description.classList.toggle('expanded');
+                });
+            });
+
+            // Explanation toggling
+            const explains = document.querySelectorAll('.explain');
+            explains.forEach(explain => {
+                explain.addEventListener('click', () => {
+                    const explanation = explain.nextElementSibling;
+                    explanation.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> IST | Sources</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html" class="button">&larr;Back</a>
+            <h1>Sources</h1>
+        </header>
+        <main>
+            <div class="holding-box">
+                <button type="button" class="dropdown">V2</button>
+                <div class="content">
+                    <h2>Source 1</h2>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
+            var coll = document.getElementsByClassName("dropdown");
+            for (let i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+
+                    // Toggle maxHeight
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+
+            // Description toggling
+            const dates = document.querySelectorAll('.date');
+            dates.forEach(date => {
+                date.addEventListener('click', () => {
+                    const description = date.nextElementSibling;
+                    description.classList.toggle('expanded');
+                });
+            });
+
+            // Explanation toggling
+            const explains = document.querySelectorAll('.explain');
+            explains.forEach(explain => {
+                explain.addEventListener('click', () => {
+                    const explanation = explain.nextElementSibling;
+                    explanation.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</html>
