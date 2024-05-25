@@ -30,6 +30,7 @@ main {
     width: 100%;
     border: none;
     text-align: center;
+    align-self: center;
     outline: none;
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -37,6 +38,7 @@ main {
     justify-content: center; /* Center the content horizontally */
     align-items: center; /* Center the content vertically */
     position: relative; /* Required for absolute positioning of the icon */
+    flex-direction: column;
 }
 
 .dropdown:after {
@@ -65,7 +67,10 @@ main {
     transition: max-height 0.2s ease-out;
     text-align: center;
     width: 80%;
-    margin: 0;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content.expanded {
@@ -89,12 +94,12 @@ main {
     margin: 10px 0; /* Add some margin for spacing */
     position: relative; /* Ensures the holding box positions correctly */
     max-height: max-content;
+    flex-direction: column;
 }
 
 .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
     position: absolute;
-    right: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
