@@ -74,7 +74,7 @@ main {
 }
 
 .content.expanded {
-    max-height: 1000px; /* Arbitrary large value to allow expansion */
+    max-height: 10000px; /* Arbitrary large value to allow expansion */
 }
 
 .holding-box {
